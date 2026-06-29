@@ -25,6 +25,9 @@ struct ContentView: View {
         }
         .frame(minWidth: 400, minHeight: 300)
         .background(Color(nsColor: .windowBackgroundColor))
+        .background(WindowAccessor { window in
+            window.setFrameAutosaveName("miViewerMainWindow")
+        })
         .navigationTitle(browser.currentURL?.lastPathComponent ?? "miViewer")
         .focusable()
         .focusEffectDisabled()
@@ -37,6 +40,23 @@ struct ContentView: View {
         .onKeyPress(.leftArrow) {
             browser.previous()
             return .handled
+        }
+        .onKeyPress(.space) {
+            browser.next()
+            return .handled
+        }
+        .onKeyPress(.escape) {
+            NSApp.keyWindow?.performClose(nil)
+            return .handled
+        }
+        .onKeyPress("f") {
+            NSApp.keyWindow?.toggleFullScreen(nil)
+            return .handled
+        }
+        .dropDestination(for: URL.self) { urls, _ in
+            guard let url = urls.first(where: { $0.isFileURL }) else { return false }
+            browser.load(fileURL: url)
+            return true
         }
     }
 

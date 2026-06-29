@@ -147,12 +147,12 @@ Uygulamanın, bir resme çift tıklandığında o resimle açılmasını istiyor
 
 Temel sürüm çalıştıktan sonra tek tek eklenebilir:
 
-- [ ] `Esc` ile pencereyi kapatma
-- [ ] `Space` ile ileri gitme
-- [ ] Fareyle zoom / pan
-- [ ] Pencere boyutunu hatırlama
-- [ ] Tam ekran
-- [ ] Sürükle-bırak ile resim açma
+- [x] `Esc` ile pencereyi kapatma
+- [x] `Space` ile ileri gitme
+- [ ] Fareyle zoom / pan *(en kapsamlı olan; ayrı adımda)*
+- [x] Pencere boyutunu hatırlama (`WindowAccessor` + `setFrameAutosaveName`)
+- [x] Tam ekran (`f` tuşu → `toggleFullScreen`)
+- [x] Sürükle-bırak ile resim açma (`dropDestination`)
 
 ---
 
