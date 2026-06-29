@@ -9,7 +9,7 @@ import SwiftUI
 import UniformTypeIdentifiers
 
 struct ContentView: View {
-    @StateObject private var browser = ImageBrowser()
+    @EnvironmentObject private var browser: ImageBrowser
     @FocusState private var isFocused: Bool
 
     var body: some View {
@@ -65,4 +65,5 @@ struct ContentView: View {
 
 #Preview {
     ContentView()
+        .environmentObject(ImageBrowser())
 }

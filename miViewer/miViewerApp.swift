@@ -9,9 +9,14 @@ import SwiftUI
 
 @main
 struct miViewerApp: App {
+    @NSApplicationDelegateAdaptor(AppDelegate.self) private var appDelegate
+    @StateObject private var browser = ImageBrowser()
+
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .environmentObject(browser)
+                .onAppear { appDelegate.browser = browser }
         }
     }
 }
