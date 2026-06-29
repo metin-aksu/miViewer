@@ -49,6 +49,18 @@ final class ImageBrowser: ObservableObject {
         }
     }
 
+    /// Sonraki resme geç; son resimdeyken başa döner (dön-dolaş).
+    func next() {
+        guard count > 0 else { return }
+        currentIndex = (currentIndex + 1) % count
+    }
+
+    /// Önceki resme geç; ilk resimdeyken sona gider (dön-dolaş).
+    func previous() {
+        guard count > 0 else { return }
+        currentIndex = (currentIndex - 1 + count) % count
+    }
+
     /// Bir klasördeki görsel dosyaları UTType.image ile filtreleyip
     /// doğal sıralamayla (localizedStandardCompare) sıralı döndürür.
     private static func scanImages(in folder: URL) -> [URL] {

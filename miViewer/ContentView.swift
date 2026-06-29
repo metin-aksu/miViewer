@@ -10,6 +10,7 @@ import UniformTypeIdentifiers
 
 struct ContentView: View {
     @StateObject private var browser = ImageBrowser()
+    @FocusState private var isFocused: Bool
 
     var body: some View {
         Group {
@@ -25,6 +26,18 @@ struct ContentView: View {
         .frame(minWidth: 400, minHeight: 300)
         .background(Color(nsColor: .windowBackgroundColor))
         .navigationTitle(browser.currentURL?.lastPathComponent ?? "miViewer")
+        .focusable()
+        .focusEffectDisabled()
+        .focused($isFocused)
+        .onAppear { isFocused = true }
+        .onKeyPress(.rightArrow) {
+            browser.next()
+            return .handled
+        }
+        .onKeyPress(.leftArrow) {
+            browser.previous()
+            return .handled
+        }
     }
 
     private var emptyState: some View {
