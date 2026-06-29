@@ -149,7 +149,9 @@ Temel sürüm çalıştıktan sonra tek tek eklenebilir:
 
 - [x] `Esc` ile pencereyi kapatma
 - [x] `Space` ile ileri gitme
-- [ ] Fareyle zoom / pan *(en kapsamlı olan; ayrı adımda)*
+- [x] Zoom kontrolleri — resim alanının altındaki çubukta: ◀ ▶ (önceki/sonraki),
+      uzaklaştır, %100, yakınlaştır, pencereye sığdır + zoom oranı ve sayfa sayacı.
+      (Fareyle pan, zoom'da ScrollView ile.)
 - [x] Pencere boyutunu hatırlama (`WindowAccessor` + `setFrameAutosaveName`)
 - [x] Tam ekran (`f` tuşu → `toggleFullScreen`)
 - [x] Sürükle-bırak ile resim açma (`dropDestination`)
