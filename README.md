@@ -1,11 +1,107 @@
 # miViewer
 
+A fast, minimal, folder-aware **macOS image viewer** you can navigate with the
+keyboard and on-screen buttons. Open one image and browse through every picture
+in the same folder with wrap-around navigation.
+
+Built with SwiftUI; a native, lightweight, signed + notarized `.app` for direct
+(non-App-Store) distribution.
+
+*[Türkçe için aşağı kaydır ↓](#miviewer-türkçe)*
+
+---
+
+## Features
+
+- 📂 **Folder awareness** — opening one image automatically lists every image in the same folder.
+- 🔁 **Wrap-around navigation** — after the last image it loops to the first, and vice versa.
+- 🔢 **Natural sorting** — `img2` comes before `img10` (numeric / natural order).
+- 🔍 **Zoom controls** — zoom in / out / 100% (actual pixels) / fit to window; pan when zoomed in.
+- ⌨️ **Keyboard + buttons** — both a bottom control bar and keyboard shortcuts.
+- 🖼️ **Wide format support** — every image type the system recognizes (`public.image`: JPEG, PNG, HEIC, GIF, TIFF, WebP…).
+- 🪟 **Remembers window size**, full screen, open via drag-and-drop.
+- 🚫 **No sandbox** — reads the other images in the opened folder without extra permissions.
+
+## Installation
+
+1. Download the latest `miViewer-x.y.dmg` from the [**Releases**](https://github.com/metin-aksu/miViewer/releases) page.
+2. Open the DMG and drag **miViewer** into your **Applications** folder.
+3. Launch the app.
+
+> The app is **notarized** by Apple, so you won't get an "unidentified developer"
+> warning on first launch — it opens normally.
+
+### Set as default viewer (optional)
+
+Right-click any image → **Get Info** (⌘I) → under **Open with** choose **miViewer**
+→ click **Change All…**. From now on every image you double-click opens in miViewer.
+
+## Usage
+
+### Keyboard shortcuts
+
+| Key | Action |
+|-----|--------|
+| `→` / `Space` | Next image |
+| `←` | Previous image |
+| `+` / `=` | Zoom in |
+| `-` | Zoom out |
+| `0` | Fit to window |
+| `f` | Toggle full screen |
+| `Esc` | Close window |
+
+### Bottom control bar
+
+`◀ ▶`  previous/next · `🔍−` zoom out · `100%` actual size · `🔍+` zoom in · `⤢` fit to window
+
+The current zoom level (%) and a `index / total` counter are shown on the right edge.
+
+### Other
+
+- Open an image by **dragging and dropping** it onto the window.
+- When zoomed in past the window size, **pan** by scrolling.
+
+## Requirements
+
+- **macOS 14.0 (Sonoma) or later**
+- Apple Silicon **and** Intel (universal binary)
+
+## Building from source
+
+```bash
+git clone https://github.com/metin-aksu/miViewer.git
+cd miViewer
+open miViewer.xcodeproj   # open in Xcode, run with ⌘R
+```
+
+or from the command line:
+
+```bash
+xcodebuild -project miViewer.xcodeproj -scheme miViewer -configuration Release build
+```
+
+## About the project
+
+See [ROADMAP.md](ROADMAP.md) and [PROGRESS.md](PROGRESS.md) for the development
+roadmap and phase notes.
+
+## Author
+
+Metin Aksu — [github.com/metin-aksu/miViewer](https://github.com/metin-aksu/miViewer)
+
+---
+---
+
+# miViewer (Türkçe)
+
 Klasör-farkındalıklı, klavye ve butonlarla gezilebilen, hızlı ve sade bir
 **macOS resim görüntüleyici**. Bir resmi açtığında, o resmin bulunduğu klasördeki
 tüm görseller arasında dön-dolaş (wrap-around) mantığıyla gezebilirsin.
 
 SwiftUI ile yazıldı; native, hafif ve App Store dışı (doğrudan) dağıtım için
 imzalı + notarize edilmiş bir `.app`.
+
+*[Scroll up for English ↑](#miviewer)*
 
 ---
 
@@ -20,8 +116,6 @@ imzalı + notarize edilmiş bir `.app`.
 - 🪟 **Pencere boyutunu hatırlar**, tam ekran, sürükle-bırak ile açma.
 - 🚫 **Sandbox'sız** — açılan klasördeki resimleri ek izin istemeden okur.
 
----
-
 ## Kurulum
 
 1. [**Releases**](https://github.com/metin-aksu/miViewer/releases) sayfasından en son `miViewer-x.y.dmg` dosyasını indir.
@@ -35,8 +129,6 @@ imzalı + notarize edilmiş bir `.app`.
 
 Bir resme **sağ tık → Bilgi Al** (⌘I) → **Birlikte Aç** bölümünden **miViewer**'ı
 seç → **Tümünü Değiştir…** de. Artık çift tıkladığın tüm resimler miViewer ile açılır.
-
----
 
 ## Kullanım
 
@@ -63,14 +155,10 @@ Sağ kenarda o anki zoom oranı (%) ve `sıra / toplam` sayacı gösterilir.
 - Bir resmi pencereye **sürükle-bırak** ederek açabilirsin.
 - Yakınlaştırınca resim pencereye sığmazsa **kaydırarak (pan)** gezebilirsin.
 
----
-
 ## Gereksinimler
 
 - **macOS 14.0 (Sonoma) veya üzeri**
 - Apple Silicon **ve** Intel (universal binary)
-
----
 
 ## Kaynaktan Derleme
 
@@ -86,9 +174,11 @@ veya komut satırından:
 xcodebuild -project miViewer.xcodeproj -scheme miViewer -configuration Release build
 ```
 
----
-
 ## Proje Hakkında
 
 Geliştirme yol haritası ve faz notları için bkz. [ROADMAP.md](ROADMAP.md) ve
 [PROGRESS.md](PROGRESS.md).
+
+## Yazar
+
+Metin Aksu — [github.com/metin-aksu/miViewer](https://github.com/metin-aksu/miViewer)
