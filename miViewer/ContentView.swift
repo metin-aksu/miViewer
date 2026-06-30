@@ -120,6 +120,8 @@ struct ContentView: View {
 
     private var toolbar: some View {
         HStack(spacing: 8) {
+            Spacer()
+
             Button(action: { browser.previous() }) {
                 Image(systemName: "chevron.left")
             }
@@ -153,15 +155,18 @@ struct ContentView: View {
             .help("Pencereye sığdır")
 
             Spacer()
-
-            Text("\(Int((effectiveScale * 100).rounded()))%")
-                .monospacedDigit()
-                .foregroundStyle(.secondary)
-
-            if browser.count > 0 {
-                Text("\(browser.currentIndex + 1) / \(browser.count)")
+        }
+        .overlay(alignment: .trailing) {
+            HStack(spacing: 8) {
+                Text("\(Int((effectiveScale * 100).rounded()))%")
                     .monospacedDigit()
                     .foregroundStyle(.secondary)
+
+                if browser.count > 0 {
+                    Text("\(browser.currentIndex + 1) / \(browser.count)")
+                        .monospacedDigit()
+                        .foregroundStyle(.secondary)
+                }
             }
         }
         .padding(.horizontal, 12)
