@@ -109,9 +109,9 @@ struct ContentView: View {
             Image(systemName: "photo.on.rectangle.angled")
                 .font(.system(size: 48))
                 .foregroundStyle(.secondary)
-            Text("Görüntülenecek resim yok")
+            Text("No image to display")
                 .foregroundStyle(.secondary)
-            Button("Resim Aç…") { openImage() }
+            Button("Open Image…") { openImage() }
         }
         .padding()
     }
