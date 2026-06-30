@@ -80,11 +80,6 @@ or from the command line:
 xcodebuild -project miViewer.xcodeproj -scheme miViewer -configuration Release build
 ```
 
-## About the project
-
-See [ROADMAP.md](ROADMAP.md) and [PROGRESS.md](PROGRESS.md) for the development
-roadmap and phase notes.
-
 ## Author
 
 Metin Aksu — [github.com/metin-aksu/miViewer](https://github.com/metin-aksu/miViewer)
@@ -173,11 +168,6 @@ veya komut satırından:
 ```bash
 xcodebuild -project miViewer.xcodeproj -scheme miViewer -configuration Release build
 ```
-
-## Proje Hakkında
-
-Geliştirme yol haritası ve faz notları için bkz. [ROADMAP.md](ROADMAP.md) ve
-[PROGRESS.md](PROGRESS.md).
 
 ## Yazar
 
