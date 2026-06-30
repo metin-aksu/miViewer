@@ -67,7 +67,8 @@ Sağ kenarda o anki zoom oranı (%) ve `sıra / toplam` sayacı gösterilir.
 
 ## Gereksinimler
 
-- macOS (Apple Silicon **ve** Intel — universal binary)
+- **macOS 14.0 (Sonoma) veya üzeri**
+- Apple Silicon **ve** Intel (universal binary)
 
 ---
 
