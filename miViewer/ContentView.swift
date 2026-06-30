@@ -112,6 +112,15 @@ struct ContentView: View {
             Text("No image to display")
                 .foregroundStyle(.secondary)
             Button("Open Image…") { openImage() }
+
+            VStack(spacing: 2) {
+                Text("Author: Metin Aksu")
+                Link("github.com/metin-aksu/miViewer",
+                     destination: URL(string: "https://github.com/metin-aksu/miViewer")!)
+            }
+            .font(.caption)
+            .foregroundStyle(.tertiary)
+            .padding(.top, 8)
         }
         .padding()
     }
