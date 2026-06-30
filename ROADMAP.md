@@ -158,11 +158,11 @@ Temel sürüm çalıştıktan sonra tek tek eklenebilir:
 
 ---
 
-## Faz 6 — Yerel Test: Varsayılan Görüntüleyici Yapma
+## Faz 6 — Yerel Test: Varsayılan Görüntüleyici Yapma ✅
 
-- [ ] Xcode'da **Product → Build** (Release).
-- [ ] `.app`'i `/Applications`'a kopyala.
-- [ ] Bir resme sağ tık → **Bilgi Al** → **Birlikte Aç** → uygulamanı seç →
+- [x] Xcode'da **Product → Build** (Release).
+- [x] `.app`'i `/Applications`'a kopyala.
+- [x] Bir resme sağ tık → **Bilgi Al** → **Birlikte Aç** → uygulamanı seç →
       **Tümünü Değiştir**.
 
 Artık çift tıkladığın her resim seninkiyle açılır.

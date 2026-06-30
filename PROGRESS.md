@@ -122,12 +122,13 @@ ROADMAP.md / PROGRESS.md
 
 ## KALAN İŞLER (sonraki oturum)
 
-### Faz 6 — Yerel test: varsayılan görüntüleyici yapma ⏳
-- [ ] Xcode'da **Product → Build** (Release) veya `xcodebuild -configuration Release`.
-- [ ] `.app`'i `/Applications`'a kopyala.
-- [ ] Bir resme sağ tık → Bilgi Al → Birlikte Aç → miViewer → **Tümünü Değiştir**.
-- Not: Release build alıp `.app`'i hazırlamak Claude tarafından yapılabilir;
-  `/Applications`'a kopyalama ve "Tümünü Değiştir" adımı kullanıcıda.
+### Faz 6 — Yerel test: varsayılan görüntüleyici yapma ✅
+- [x] Release build alındı (`xcodebuild -configuration Release`), Apple Development
+      sertifikasıyla imzalı (Hardened Runtime açık).
+- [x] `.app` `/Applications`'a kopyalandı.
+- [x] "Birlikte Aç → Tümünü Değiştir" ile varsayılan görüntüleyici yapıldı — sorunsuz çalışıyor.
+- Not: Bu imza "Apple Development" → sadece bu makinede çalışır. Başkasına dağıtım
+  için Faz 7'deki Developer ID + notarization gerekir.
 
 ### Faz 7 — GitHub'dan dağıtım ⏳ (büyük ölçüde kullanıcının manuel/hesap adımları)
 - [ ] 7a. Code signing: Apple Developer hesabı (~99 USD/yıl) + "Developer ID Application" sertifikası.
