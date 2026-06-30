@@ -125,34 +125,34 @@ struct ContentView: View {
             Button(action: { browser.previous() }) {
                 Image(systemName: "chevron.left")
             }
-            .help("Önceki resim")
+            .help("Previous image")
 
             Button(action: { browser.next() }) {
                 Image(systemName: "chevron.right")
             }
-            .help("Sonraki resim")
+            .help("Next image")
 
             Divider().frame(height: 16)
 
             Button(action: { zoomOut() }) {
                 Image(systemName: "minus.magnifyingglass")
             }
-            .help("Uzaklaştır")
+            .help("Zoom out")
 
             Button(action: { zoom100() }) {
                 Text("100%").monospacedDigit()
             }
-            .help("Gerçek boyut (%100)")
+            .help("Actual size (100%)")
 
             Button(action: { zoomIn() }) {
                 Image(systemName: "plus.magnifyingglass")
             }
-            .help("Yakınlaştır")
+            .help("Zoom in")
 
             Button(action: { fitImage() }) {
                 Image(systemName: "arrow.down.left.and.arrow.up.right")
             }
-            .help("Pencereye sığdır")
+            .help("Fit to window")
 
             Spacer()
         }
