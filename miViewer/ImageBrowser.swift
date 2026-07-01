@@ -28,8 +28,9 @@ final class ImageBrowser: ObservableObject {
     /// Klasördeki görsel dosya sayısı.
     var count: Int { imageURLs.count }
 
-    init(fileURL: URL) {
-        load(fileURL: fileURL)
+    /// Bir dosya URL'i ile başlat (nil ise boş başlar).
+    init(fileURL: URL?) {
+        if let fileURL { load(fileURL: fileURL) }
     }
 
     /// Boş başlangıç (henüz resim açılmamış durum için).

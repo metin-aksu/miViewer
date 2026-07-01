@@ -9,7 +9,15 @@ import SwiftUI
 import UniformTypeIdentifiers
 
 struct ContentView: View {
-    @EnvironmentObject private var browser: ImageBrowser
+    /// Bu pencereye ait, diğer pencerelerden bağımsız tarayıcı.
+    @StateObject private var browser = ImageBrowser()
+
+    /// Paylaşılan açılış kuyruğu (yeni dosyalar buradan kapılır).
+    @ObservedObject private var opener = OpenManager.shared
+
+    /// Bu pencere kuyruktan bir dosya kaptı mı (bir kez kapsın).
+    @State private var claimed = false
+
     @FocusState private var isFocused: Bool
 
     /// O an gösterilen resmin yüklenmiş hali (zoom'da yeniden yüklenmesin diye cache).
@@ -38,16 +46,17 @@ struct ContentView: View {
             toolbar
         }
         .frame(minWidth: 400, minHeight: 300)
-        .background(WindowAccessor { window in
-            window.setFrameAutosaveName("miViewerMainWindow")
-        })
         .navigationTitle(browser.currentURL?.lastPathComponent ?? "miViewer")
         .focusable()
         .focusEffectDisabled()
         .focused($isFocused)
         .onAppear {
+            claimFromQueueIfNeeded()
             isFocused = true
             loadCurrentImage()
+        }
+        .onChange(of: opener.queue) { _, _ in
+            claimFromQueueIfNeeded()
         }
         .onChange(of: browser.currentURL) { _, _ in
             loadCurrentImage()
@@ -203,6 +212,15 @@ struct ContentView: View {
 
     // MARK: - Yükleme
 
+    /// Bu pencere henüz dosya kapmadıysa ve boşsa, kuyruktan bir dosya al.
+    private func claimFromQueueIfNeeded() {
+        guard !claimed, browser.currentURL == nil else { return }
+        if let url = opener.claim() {
+            claimed = true
+            browser.load(fileURL: url)
+        }
+    }
+
     private func loadCurrentImage() {
         if let url = browser.currentURL {
             currentImage = NSImage(contentsOf: url)
@@ -238,5 +256,4 @@ struct ContentView: View {
 
 #Preview {
     ContentView()
-        .environmentObject(ImageBrowser())
 }

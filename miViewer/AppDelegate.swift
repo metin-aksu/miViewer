@@ -6,30 +6,30 @@
 //
 
 import AppKit
+import Combine
+
+/// Açılmak istenen dosya URL'lerini tutan paylaşılan kuyruk. Her yeni pencere
+/// açıldığında kuyruktan bir URL "kapar" ve kendi tarayıcısına yükler; böylece
+/// her dosya kendi penceresinde, diğerlerinden bağımsız görüntülenir.
+@MainActor
+final class OpenManager: ObservableObject {
+    static let shared = OpenManager()
+    @Published var queue: [URL] = []
+
+    func enqueue(_ urls: [URL]) {
+        queue.append(contentsOf: urls)
+    }
+
+    /// Kuyruktaki ilk URL'i alıp çıkarır (yoksa nil).
+    func claim() -> URL? {
+        queue.isEmpty ? nil : queue.removeFirst()
+    }
+}
 
 /// Resme çift tıklandığında (veya "Birlikte Aç" ile) macOS'un uygulamaya
-/// ilettiği dosya URL'ini yakalar ve paylaşılan ImageBrowser'a aktarır.
+/// ilettiği dosya URL'lerini yakalar ve paylaşılan kuyruğa ekler.
 final class AppDelegate: NSObject, NSApplicationDelegate {
-    /// App tarafından kurulan paylaşılan tarayıcı. Henüz hazır değilken
-    /// gelen URL `pendingURL`'de bekletilir.
-    var browser: ImageBrowser? {
-        didSet { flushPendingIfNeeded() }
-    }
-
-    private var pendingURL: URL?
-
     func application(_ application: NSApplication, open urls: [URL]) {
-        guard let url = urls.first else { return }
-        if let browser {
-            browser.load(fileURL: url)
-        } else {
-            pendingURL = url
-        }
-    }
-
-    private func flushPendingIfNeeded() {
-        guard let browser, let url = pendingURL else { return }
-        browser.load(fileURL: url)
-        pendingURL = nil
+        OpenManager.shared.enqueue(urls)
     }
 }
