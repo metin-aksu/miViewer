@@ -28,6 +28,19 @@ Built with SwiftUI; a native, lightweight, signed + notarized `.app` for direct
 
 ## Installation
 
+### With Homebrew
+
+```bash
+brew tap metin-aksu/tap
+brew trust metin-aksu/tap
+brew install --cask miviewer
+```
+
+`brew trust` is required once because this is a third-party tap. The app installs
+directly into **Applications**.
+
+### Manual (DMG)
+
 1. Download the latest `miViewer-x.y.dmg` from the [**Releases**](https://github.com/metin-aksu/miViewer/releases) page.
 2. Open the DMG and drag **miViewer** into your **Applications** folder.
 3. Launch the app.
@@ -119,6 +132,19 @@ imzalı + notarize edilmiş bir `.app`.
 - 🚫 **Sandbox'sız** — açılan klasördeki resimleri ek izin istemeden okur.
 
 ## Kurulum
+
+### Homebrew ile
+
+```bash
+brew tap metin-aksu/tap
+brew trust metin-aksu/tap
+brew install --cask miviewer
+```
+
+`brew trust` bir kez gereklidir (bu üçüncü taraf bir tap olduğu için). Uygulama
+doğrudan **Applications** klasörüne kurulur.
+
+### Elle (DMG)
 
 1. [**Releases**](https://github.com/metin-aksu/miViewer/releases) sayfasından en son `miViewer-x.y.dmg` dosyasını indir.
 2. DMG'yi aç, **miViewer** uygulamasını **Applications** klasörüne sürükle.
