@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="icon.png" alt="miViewer" width="160">
+</p>
+
 # miViewer
 
 A fast, minimal, folder-aware **macOS image viewer** you can navigate with the
