@@ -31,13 +31,13 @@ Built with SwiftUI; a native, lightweight, signed + notarized `.app` for direct
 ### With Homebrew
 
 ```bash
-brew tap metin-aksu/tap
-brew trust metin-aksu/tap
-brew install --cask miviewer
+brew install --cask metin-aksu/tap/miviewer
 ```
 
-`brew trust` is required once because this is a third-party tap. The app installs
-directly into **Applications**.
+The app installs directly into **Applications**.
+
+> If you get an "untrusted tap" error, run `brew trust metin-aksu/tap` once and
+> repeat the command.
 
 ### Manual (DMG)
 
@@ -136,13 +136,13 @@ imzalı + notarize edilmiş bir `.app`.
 ### Homebrew ile
 
 ```bash
-brew tap metin-aksu/tap
-brew trust metin-aksu/tap
-brew install --cask miviewer
+brew install --cask metin-aksu/tap/miviewer
 ```
 
-`brew trust` bir kez gereklidir (bu üçüncü taraf bir tap olduğu için). Uygulama
-doğrudan **Applications** klasörüne kurulur.
+Uygulama doğrudan **Applications** klasörüne kurulur.
+
+> "untrusted tap" hatası alırsan bir kez `brew trust metin-aksu/tap` çalıştırıp
+> komutu tekrarla.
 
 ### Elle (DMG)
 
