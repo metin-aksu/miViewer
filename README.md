@@ -28,8 +28,11 @@ Built with SwiftUI; a native, lightweight, signed + notarized `.app` for direct
 2. Open the DMG and drag **miViewer** into your **Applications** folder.
 3. Launch the app.
 
-> The app is **notarized** by Apple, so you won't get an "unidentified developer"
-> warning on first launch — it opens normally.
+> ⚠️ **First launch:** the app is signed with a Developer ID but not yet notarized,
+> so macOS may block it the first time. To open it: **right-click (Control-click) the
+> app → Open**, then confirm in the dialog. If macOS still refuses, open
+> **System Settings → Privacy & Security**, scroll down and click **"Open Anyway"**.
+> You only need to do this once.
 
 ### Set as default viewer (optional)
 
@@ -117,8 +120,11 @@ imzalı + notarize edilmiş bir `.app`.
 2. DMG'yi aç, **miViewer** uygulamasını **Applications** klasörüne sürükle.
 3. Uygulamayı çalıştır.
 
-> Uygulama Apple tarafından **notarize** edilmiştir; ilk açılışta "bilinmeyen
-> geliştirici" uyarısı almazsın, normal şekilde açılır.
+> ⚠️ **İlk açılış:** Uygulama Developer ID ile imzalı ama henüz notarize edilmedi;
+> bu yüzden macOS ilk seferde engelleyebilir. Açmak için: uygulamaya **sağ tık
+> (Control-tık) → Aç** de ve çıkan uyarıda onayla. Yine açılmazsa **Sistem Ayarları
+> → Gizlilik ve Güvenlik**'e gir, aşağı in ve **"Yine de Aç"** butonuna bas. Bunu
+> sadece bir kez yapman yeterli.
 
 ### Varsayılan görüntüleyici yapmak (opsiyonel)
 
